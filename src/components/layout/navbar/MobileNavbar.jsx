@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import "./Navbar.css"; 
+import "./navbar.css"; 
 
 const mobileItems = [
   { name: "الرئيسية", to: "/" },
