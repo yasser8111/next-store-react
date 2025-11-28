@@ -2,13 +2,14 @@ import "./hero.css";
 import {
   DISCOUNT_MIN_AMOUNT,
   DISCOUNT_PERCENT,
+  STORE_NAME
 } from "../../../utils/constants";
 
 export default function Hero() {
   return (
     <section className="hero home-page">
       <div className="hero-content container">
-        <h1>مرحبا بك في متجر نكست</h1>
+        <h1>مرحبا بك في متجر {STORE_NAME}</h1>
         <p>
           اشترِ أكثر من {DISCOUNT_MIN_AMOUNT} ريال لتحصل على خصم{" "}
           {DISCOUNT_PERCENT}٪ على مشترياتك

@@ -115,7 +115,81 @@
 }
 
 @media (max-width: 768px) {
+  .terms-section {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
   .terms-sidebar {
     display: none;
+  }
+
+  .terms-content {
+    padding: var(--space-4);
+  }
+
+  .terms-article h2 {
+    font-size: 1.25rem;
+  }
+
+  .terms-list {
+    gap: var(--space-1);
+  }
+
+  .notice-box {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .pricing-table .table-header,
+  .pricing-table .table-row {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--space-2);
+  }
+
+  .pricing-table .table-row:nth-child(even) {
+    background: var(--bg-card);
+  }
+}
+@media (max-width: 360px) {
+  .terms-section {
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+  }
+
+  .terms-content {
+    padding: var(--space-3);
+  }
+
+  .terms-article h2 {
+    font-size: 1.1rem;
+  }
+
+  .terms-list {
+    gap: var(--space-1);
+  }
+
+  .term-item {
+    gap: var(--space-1);
+  }
+
+  .notice-box {
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3);
+  }
+
+  .pricing-table .table-header,
+  .pricing-table .table-row {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    padding: var(--space-2) var(--space-3);
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .shipping-info {
+    font-size: 0.85rem;
   }
 }

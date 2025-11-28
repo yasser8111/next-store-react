@@ -23,4 +23,12 @@
   .banner {
     padding: 40px 10px;
   }
+  .banner .banner-content h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: 5px;
+  }
+  .banner .banner-content p {
+    font-size: var(--text-md);
+    margin-bottom: 10px;
+  }
 }

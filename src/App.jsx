@@ -10,6 +10,7 @@ const Cart = lazy(() => import("./pages/Cart"));
 const About = lazy(() => import("./pages/About"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Custom = lazy(() => import("./pages/Custom"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"))
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
