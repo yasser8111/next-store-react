@@ -1,0 +1,20 @@
+.custom-banner {
+  background: url("../../../assets/images/hero.png") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+  border-radius: 12px;
+  margin: 40px auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.custom-banner .banner-content h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: 10px;
+}
+
+.custom-banner .banner-content p {
+  font-size: var(--text-lg);
+  margin-bottom: 20px;
+}

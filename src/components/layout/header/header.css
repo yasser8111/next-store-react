@@ -1,10 +1,11 @@
 .header {
-  width: 100%;
+  width: calc(100% - 1rem);
+  margin-inline: 0.5rem;
+  margin-top: 10px;
   color: var(--text-on-primary);
   position: fixed;
   top: 0;
   left: 0;
-  margin-top: 10px;
   z-index: var(--z-header);
   transition: var(--transition-fast);
 }
@@ -20,12 +21,7 @@
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-lg);
 }
-@media (max-width: 1200px) {
-  .header {
-    width: calc(100% - 2rem);
-    margin-inline: 1rem;
-  }
-}
+/* @media (max-width: 700px) {
+} */
 /* @media (max-width: 768px) {
-  
 } */
