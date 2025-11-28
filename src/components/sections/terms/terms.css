@@ -1,0 +1,121 @@
+.terms-section {
+  display: flex;
+  gap: var(--gap-lg);
+  padding: var(--space-6) 0;
+  align-items: flex-start;
+}
+
+.terms-sidebar {
+  flex: 0 0 250px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  position: sticky;
+  top: 110px;
+}
+
+.terms-sidebar h3 {
+  margin-bottom: var(--space-3);
+  font-weight: var(--font-weight-bold);
+}
+
+.terms-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.terms-sidebar li {
+  margin-bottom: var(--space-2);
+}
+
+.terms-sidebar a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.terms-sidebar a:hover {
+  color: var(--color-primary-500);
+}
+
+.terms-content {
+  flex: 1;
+  background: var(--bg-card);
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.terms-article + .terms-article {
+  margin-top: var(--space-10);
+}
+
+.terms-article h2 {
+  margin-bottom: var(--space-4);
+  color: var(--color-primary-700);
+}
+
+.terms-list {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.term-item {
+  display: flex;
+  align-items: start;
+  gap: var(--space-2);
+}
+
+.notice-box {
+  display: flex;
+  gap: var(--space-3);
+  background: var(--color-info-50);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-4);
+}
+
+.notice-box strong {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.pricing-table {
+  margin-top: var(--space-6);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  padding: var(--space-2) var(--space-3);
+}
+
+.table-header {
+  background: var(--bg-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.table-row:nth-child(even) {
+  background: var(--bg-primary);
+}
+
+.shipping-info {
+  margin-top: var(--space-4);
+}
+
+.shipping-info h4 {
+  margin-bottom: var(--space-2);
+}
+
+@media (max-width: 768px) {
+  .terms-sidebar {
+    display: none;
+  }
+}

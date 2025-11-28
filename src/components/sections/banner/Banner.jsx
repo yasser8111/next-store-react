@@ -7,14 +7,16 @@ export default function CustomBanner({
   onButtonClick = () => {},
 }) {
   return (
-    <section className="custom-banner container">
-      <div className="banner-content">
-        <h2>{title}</h2>
-        <p>{subtitle}</p>
-        <button className="btn" onClick={onButtonClick}>
-          {buttonText}
-        </button>
-      </div>
-    </section>
+    <div className="container">
+      <section className="banner">
+        <div className="banner-content">
+          <h2>{title}</h2>
+          <p>{subtitle}</p>
+          <button className="btn" onClick={onButtonClick}>
+            {buttonText}
+          </button>
+        </div>
+      </section>
+    </div>
   );
 }
