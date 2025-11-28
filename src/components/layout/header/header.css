@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  color: var(--text-on-primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 10px;
+  z-index: var(--z-header);
+  transition: var(--transition-fast);
+}
+.header .header-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  gap: 20px;
+  background: var(--bg-header);
+  transition: var(--transition-fast);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lg);
+}
+@media (max-width: 1200px) {
+  .header {
+    width: calc(100% - 2rem);
+    margin-inline: 1rem;
+  }
+}
+/* @media (max-width: 768px) {
+  
+} */
