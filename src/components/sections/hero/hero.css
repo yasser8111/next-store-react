@@ -3,7 +3,7 @@
   justify-content: flex-end;
   align-items: center;
   padding: var(--space-16) var(--space-4);
-  background: url("../../../public/img/hero2.png") center/cover no-repeat;
+  background: url("../../../assets/images/hero.png") center/cover no-repeat;
   color: var(--text-on-primary);
   text-align: right;
   min-height: 100vh;
