@@ -1,22 +1,29 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import "./styles/globals.css";
+import Loader from "./components/common/loader/Loader";
 
-import Home from "./pages/Home";
-import Products from "./pages/Products";
-import Cart from "./pages/Cart";
-import About from "./pages/About";
-import Terms from "./pages/Terms"
+// Lazy loading for pages
+const Home = lazy(() => import("./pages/Home"));
+const Products = lazy(() => import("./pages/Products"));
+const Cart = lazy(() => import("./pages/Cart"));
+const About = lazy(() => import("./pages/About"));
+const Terms = lazy(() => import("./pages/Terms"));
+const Custom = lazy(() => import("./pages/Custom"));
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/terms" element={<Terms />} />
-      </Routes>
+      <Suspense fallback={<Loader text="جارِ تحميل الصفحة..." />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/custom" element={<Custom />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

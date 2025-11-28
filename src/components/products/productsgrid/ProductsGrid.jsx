@@ -1,25 +1,35 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../../config/firebase"; 
+import { db } from "../../../config/firebase";
 import ProductCard from "../productcard/ProductCard";
+import Loader from "../../common/loader/Loader";
 import "./products.css";
 
 export default function ProductsGrid({ showSearch = false }) {
   const [products, setProducts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
+
       const querySnapshot = await getDocs(collection(db, "products"));
       const productsData = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
+
       setProducts(productsData);
+      setLoading(false);
     };
 
     fetchProducts();
   }, []);
+
+  if (loading) {
+    return <Loader text="جاري تحميل المنتجات..." />;
+  }
 
   const filteredProducts = products.filter((product) =>
     product.name?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -28,7 +38,6 @@ export default function ProductsGrid({ showSearch = false }) {
   return (
     <section className="products" id="products">
       <div className="container">
-        
         <h2 className="products-title">منتجاتنا</h2>
 
         {showSearch && (
