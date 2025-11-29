@@ -1,0 +1,130 @@
+/* ============================
+   Product Card
+============================ */
+.product-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  transition: var(--transition-fast);
+  cursor: pointer;
+  width: 100%;
+  min-width: none;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Image */
+.image-wrapper img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* Info */
+.product-info {
+  margin-top: var(--space-4);
+}
+
+.product-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-2);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price span {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-600);
+}
+
+/* Button */
+.product-btn {
+  margin-top: var(--space-4);
+  width: 100%;
+  padding: var(--space-3) 0;
+  background: var(--color-primary-500);
+  color: var(--text-on-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+  transition: var(--transition-fast);
+  font-weight: var(--font-weight-bold);
+}
+
+.product-btn:hover {
+  background: var(--color-primary-600);
+}
+
+/* ============================
+   Small screens (phones)
+============================ */
+@media (max-width: 480px) {
+  .product-card {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .image-wrapper img {
+    height: 150px; 
+  }
+
+  .product-title {
+    font-size: var(--text-base);
+  }
+
+  .product-price span {
+    font-size: var(--text-md);
+  }
+
+  .product-btn {
+    font-size: var(--text-base);
+    padding: var(--space-2) 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-card {
+    padding: var(--space-2);
+    border-radius: var(--radius-md);
+  }
+
+  .image-wrapper img {
+    height: 130px; 
+  }
+
+  .product-title {
+    font-size: var(--text-sm); 
+  }
+
+  .product-price span {
+    font-size: var(--text-base);
+  }
+
+  .product-btn {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card,
+  .product-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .product-card,
+  .product-card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}

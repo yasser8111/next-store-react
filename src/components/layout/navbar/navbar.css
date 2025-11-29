@@ -139,7 +139,7 @@
   width: 100%;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .menu {
     display: none;
   }
@@ -147,5 +147,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+} */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+}
+@media (max-width: 480px) {
+  .mobile-menu {
+    width: 180px;
+  }
+
+  .mobile-menu a {
+    padding: 0.6rem 0.8rem;
+    font-size: var(--text-sm);
+  }
+}
+@media (max-width: 360px) {
+  .mobile-menu {
+    width: 160px;
   }
 }

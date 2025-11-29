@@ -3,3 +3,10 @@
   font-weight: 700;
   color: var(--text-primary);
 }
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: var(--text-xl);
+  }
+}
+
