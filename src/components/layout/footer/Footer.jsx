@@ -7,6 +7,13 @@ import {
   STORE_ADDRESS,
 } from "../../../utils/constants";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faWhatsapp,
+} from "@fortawesome/free-brands-svg-icons";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -16,6 +23,12 @@ export default function Footer() {
         <div className="footer-section">
           <Logo />
           <p className="footer-text">{STORE_DESCRIPTION}</p>
+
+          <div className="footer-social">
+            <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+            <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+            <a href="#"><FontAwesomeIcon icon={faWhatsapp} /></a>
+          </div>
         </div>
 
         {/* Pages */}
