@@ -11,11 +11,11 @@ import "./navbar.css";
 const mobileItems = [
   { name: "الرئيسية", to: "/" },
   { name: "المنتجات", to: "/products" },
-  { name: "من نحن", to: "/about" },
+  { name: "من نحن", to: "/" },
   { name: "الشروط", to: "/terms" },
   { name: "السلة", to: "/cart" },
-  { name: "الملف الشخصي", to: "/profile" },
-  { name: "الإعدادات", to: "/settings" },
+  { name: "الملف الشخصي", to: "/login" },
+  { name: "الإعدادات", to: "/login" },
 ];
 
 export default function MobileNavbar() {
