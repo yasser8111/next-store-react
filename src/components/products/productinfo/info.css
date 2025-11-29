@@ -5,24 +5,36 @@
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--space-6);
 }
-
 .product-info-detail .product-title {
   font-size: var(--text-3xl);
   margin-bottom: var(--space-2);
 }
-
-.product-info-detail .product-price {
-  font-size: var(--text-2xl);
-  color: var(--color-primary-500);
-  margin-bottom: var(--space-2);
+.product-prices {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: var(--space-4) 0;
 }
-
+.product-prices .price {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-600);
+}
+.product-prices .old-price {
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  opacity: 0.7;
+  font-weight: var(--font-weight-medium);
+}
+.product-prices.discount .price {
+  color: var(--color-primary-500);
+}
 .product-info-detail .product-description {
   font-size: var(--text-base);
   color: var(--text-secondary);
   margin-bottom: var(--space-4);
 }
-
 .product-buy-btn {
   background-color: var(--color-primary-500);
   color: var(--text-on-primary);
@@ -31,7 +43,6 @@
   font-weight: var(--font-weight-semibold);
   transition: var(--transition-normal);
 }
-
 .product-buy-btn:hover {
   background-color: var(--color-primary-600);
 }
@@ -41,62 +52,63 @@
   gap: 10px;
   margin-top: var(--space-4);
 }
-
 .product-actions .btn {
   padding: 0.6rem 1.2rem;
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
 }
-
 .btn.primary {
   background-color: var(--color-primary-500);
   color: var(--text-on-primary);
 }
-
 .btn.primary:hover {
   background-color: var(--color-primary-600);
 }
-
 .btn.outline {
   border: 2px solid var(--color-primary-500);
   color: var(--color-primary-500);
   background: transparent;
 }
-
 .btn.outline:hover {
   background-color: var(--color-primary-50);
 }
-
 .btn.whatsapp {
   background-color: #25d366;
   color: white;
 }
-
 .btn.whatsapp:hover {
   opacity: 0.85;
 }
 .product-sizes {
   margin: var(--space-4) 0;
 }
-
 .sizes-list {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin-top: var(--space-2);
 }
-
 .size-item {
   padding: 0.4rem 0.8rem;
   border: 1px solid var(--color-primary-500);
   border-radius: var(--radius-sm);
   background-color: var(--bg-card);
-  cursor: default;
+  cursor: pointer;
   font-weight: var(--font-weight-medium);
   transition: var(--transition-normal);
 }
-
 .size-item:hover {
   background-color: var(--color-primary-50);
+}
+@media (max-width: 400px) {
+  .product-prices {
+    gap: 8px;
+  }
+  .product-prices .price {
+    font-size: 1.4rem;
+  }
+  .product-prices .old-price {
+    font-size: 1rem;
+  }
 }

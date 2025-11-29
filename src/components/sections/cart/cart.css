@@ -131,11 +131,11 @@
 /* ==================== ملخص السلة ==================== */
 .cart-summary {
   flex: 1 1 35%;
-  background: var(--bg-secondary);
+  background: var(--bg-card);
   padding: var(--space-5);
   border-radius: var(--radius-lg);
   height: fit-content;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-lg);
 }
 
 .cart-summary h2 {
@@ -174,7 +174,7 @@
   font-size: var(--text-lg);
   text-align: center;
   color: var(--text-secondary);
-  margin: var(--space-6) 0;
+  margin: var(--space-32) 0;
 }
 
 /* ==================== استجابة للشاشات الصغيرة ==================== */

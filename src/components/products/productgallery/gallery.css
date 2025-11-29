@@ -1,74 +1,145 @@
-/* ===== Mobile-first base ===== */
+/* ================================
+   Product Detail Main Layout
+================================ */
 .product-detail-layout {
+  margin-top: 80px;
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(16px, 4vw, 32px);
-  margin: clamp(20px, 4vw, 40px) 0;
   direction: rtl;
 }
 
-/* === GALLERY === */
+/* ================================
+   Gallery Container
+================================ */
 .product-gallery,
 .product-swiper {
   width: 100%;
-  max-width: clamp(260px, 75vw, 500px); /* أكبر على الشاشات الكبيرة */
+  min-width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: var(--radius-lg);
   overflow: hidden;
   margin-inline: auto;
 }
+.product-gallery{
+  box-shadow: var(--shadow-2xl);
+}
+.product-swiper {
+  position: relative;
+}
+/* ================================
+   Swiper Pagination (Dots)
+================================ */
+.product-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary-500);
+  opacity: 0.5;
+  transition: 0.3s;
+}
 
-/* الصورة داخل السلايد */
+.product-swiper .swiper-pagination-bullet-active {
+  background: var(--color-primary-500);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.product-swiper .swiper-pagination {
+  bottom: 12px !important;
+}
+/* ================================
+   Custom Navigation Buttons
+================================ */
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 15;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+  color: var(--color-primary-500);
+  padding: 5px;
+  opacity: 0.5;
+}
+.custom-prev:active,
+.custom-next:active {
+  transform: translateY(-50%) scale(0.9);
+}
+.custom-prev:hover,
+.custom-next:hover {
+  box-shadow: var(--shadow-md);
+  background: var(--bg-card);
+  opacity: 1;
+}
+
+.custom-prev {
+  right: 10px !important;
+}
+.custom-next {
+  left: 10px !important;
+}
+/* ================================
+   Slide Image
+================================ */
 .product-gallery .slide-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* === Info === */
+/* ================================
+   Product Info Section
+================================ */
 .product-info {
   width: 100%;
   min-width: 0;
-  /* padding-inline: clamp(10px, 3vw, 24px); */
 }
 
-/* ==========================================
-   Tablet: يبدأ العرض ثنائي الأعمدة
-========================================== */
+/* ================================
+   Responsive Layout (≥768px)
+================================ */
 @media (min-width: 768px) {
   .product-detail-layout {
-    grid-template-columns: 
-      clamp(300px, 40%, 420px) /* Gallery column */
-      1fr;                    /* Info column */
+    grid-template-columns:
+      clamp(300px, 40%, 420px)
+      1fr;
     align-items: start;
+    margin-top: 100px;
   }
 
   .product-gallery,
   .product-swiper {
-    margin-inline: 0; /* يصبح ثابت يمين */
+    margin-inline: 0;
   }
 }
-
-/* ==========================================
-   Large Desktop (مهم جداً للتحسين)
-========================================== */
+/* ================================
+   Responsive Layout (≥1200px)
+================================ */
 @media (min-width: 1200px) {
   .product-detail-layout {
     grid-template-columns:
-      clamp(360px, 33%, 500px)  /* Gallery كبير ومتوازن */
+      clamp(360px, 33%, 500px)
       1fr;
     gap: clamp(24px, 2vw, 48px);
   }
 
   .product-gallery,
   .product-swiper {
-    max-width: 100%; /* تخلّي grid يتحكم بالحجم */
+    max-width: 100%;
   }
 }
 
-/* ==========================================
-   Ultra Wide Screens (الشاشات الكبيرة جدًا)
-========================================== */
+/* ================================
+   Responsive Layout (≥1440px)
+================================ */
 @media (min-width: 1440px) {
   .product-detail-layout {
     grid-template-columns:
@@ -77,7 +148,9 @@
   }
 }
 
-/* Typography */
+/* ================================
+   Typography
+================================ */
 .product-info h1 {
   font-size: clamp(1.2rem, 1.8vw, 2rem);
 }

@@ -8,14 +8,6 @@ export default function ProductInfo({ product }) {
   return (
     <div className="product-info">
       <h1 className="product-name">{product.name}</h1>
-
-      <div className="product-prices">
-        <span className="price">{product.price} {product.currency}</span>
-        {product.oldPrice && (
-          <span className="old-price">{product.oldPrice} {product.currency}</span>
-        )}
-      </div>
-
       <p className="product-description">{product.description}</p>
 
       {availableSizes.length > 0 && (
@@ -28,6 +20,12 @@ export default function ProductInfo({ product }) {
           </div>
         </div>
       )}
+      <div className="product-prices">
+        <span className="price">{product.price} {product.currency}</span>
+        {product.oldPrice && (
+          <span className="old-price">{product.oldPrice} {product.currency}</span>
+        )}
+      </div>
 
       <div className="product-actions">
         <button className="btn primary">أضف إلى السلة</button>
