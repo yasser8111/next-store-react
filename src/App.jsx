@@ -11,6 +11,9 @@ const About = lazy(() => import("./pages/About"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Custom = lazy(() => import("./pages/Custom"));
 const ProductDetails = lazy(() => import("./pages/product-details/ProductDetails"))
+const Checkout = lazy(() => import("./pages/Checkout"))
+const Login = lazy(() => import("./pages/login/LoginPage"))
+
 
 export default function App() {
   return (
@@ -24,6 +27,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/custom" element={<Custom />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

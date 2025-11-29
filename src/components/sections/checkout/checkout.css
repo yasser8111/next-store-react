@@ -1,0 +1,12 @@
+.checkout-content {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: var(--breakpoint-md)) {
+  .checkout-content {
+    flex-direction: column;
+  }
+}

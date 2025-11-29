@@ -7,8 +7,9 @@ const items = [
     name: "المستخدم",
     to: "/profile",
     links: [
-      { label: "الملف الشخصي", to: "/profile" },
-      { label: "الإعدادات", to: "/settings" },
+      // /profile /settings
+      { label: "الملف الشخصي", to: "/login" },
+      { label: "الإعدادات", to: "/login" },
     ],
   },
   {
@@ -23,9 +24,10 @@ const items = [
     name: "الصفحات",
     to: "/",
     links: [
+      // /about
       { label: "الرئيسية", to: "/" },
       { label: "المنتجات", to: "/products" },
-      { label: "من نحن", to: "/about" },
+      { label: "من نحن", to: "/" },
       { label: "الشروط", to: "/terms" },
       { label: "السلة", to: "/cart" },
     ],
