@@ -9,9 +9,9 @@ import Header from "../../components/layout/header/Header";
 import Footer from "../../components/layout/footer/Footer";
 import Loader from "../../components/common/loader/Loader";
 
-import ProductGallery from "../../components/products/productGallery/ProductGallery";
-import ProductInfo from "../../components/products/productInfo/ProductInfo";
-import ProductSpecs from "../../components/products/productSpecs/ProductSpecs";
+import ProductGallery from "../../components/products/productgallery/ProductGallery";
+import ProductInfo from "../../components/products/productinfo/ProductInfo";
+// import ProductSpecs from "../../components/products/productspecs/ProductSpecs";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -47,7 +47,7 @@ export default function ProductDetail() {
         </div>
 
         <div className="product-specs">
-          <ProductSpecs specs={product.specs} />
+          {/* <ProductSpecs specs={product.specs} /> */}
         </div>
       </div>
 
