@@ -5,9 +5,12 @@
 
 /* Container utility */
 .container {
+  /* margin: 0 auto; */
+  /* padding: var(--container-padding); */
+  width: 100%;
   max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: var(--container-padding);
+  padding-inline: clamp(12px, 4vw, 32px);
+  margin-inline: auto;
 }
 
 /* Medium container */

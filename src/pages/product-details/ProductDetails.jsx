@@ -11,7 +11,8 @@ import Loader from "../../components/common/loader/Loader";
 
 import ProductGallery from "../../components/products/productgallery/ProductGallery";
 import ProductInfo from "../../components/products/productinfo/ProductInfo";
-// import ProductSpecs from "../../components/products/productspecs/ProductSpecs";
+import ProductSpecs from "../../components/products/productspecs/ProductSpecs";
+import ProductsGrid from "../../components/products/productsgrid/ProductsGrid"
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -41,15 +42,17 @@ export default function ProductDetail() {
           <ProductGallery
             mainImage={product.mainImage}
             hoverImage={product.hoverImage}
-            galleryImages={product.galleryImages}
+            galleryImages={product.gallery}
           />
           <ProductInfo product={product} />
         </div>
 
         <div className="product-specs">
-          {/* <ProductSpecs specs={product.specs} /> */}
+          <ProductSpecs specs={product.specs} />
         </div>
+
       </div>
+        {/* <ProductsGrid /> */}
 
       <Footer />
     </>

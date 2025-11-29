@@ -1,77 +1,88 @@
-/* تخطيط الصفحة */
+/* ===== Mobile-first base ===== */
 .product-detail-layout {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 4vw, 32px);
+  margin: clamp(20px, 4vw, 40px) 0;
   direction: rtl;
-  margin: 40px 0;
 }
 
-/* معرض الصور */
-.product-gallery {
-  flex: 0 0 480px; /* عرض ثابت */
-}
-
-/* سلايدر Swiper */
+/* === GALLERY === */
+.product-gallery,
 .product-swiper {
-  width: 480px;   /* عرض ثابت */
-  height: 360px;  /* ارتفاع ثابت */
-  border-radius: 12px;
+  width: 100%;
+  max-width: clamp(260px, 75vw, 500px); /* أكبر على الشاشات الكبيرة */
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  margin-inline: auto;
 }
 
+/* الصورة داخل السلايد */
 .product-gallery .slide-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-/* معلومات المنتج */
+/* === Info === */
 .product-info {
-  flex: 1 1 calc(100% - 510px); /* يأخذ باقي المساحة */
-  max-width: calc(100% - 510px);
+  width: 100%;
+  min-width: 0;
+  padding-inline: clamp(10px, 3vw, 24px);
 }
 
-/* تحسين النصوص والمساحات */
-.product-info h1,
-.product-info h2,
-.product-info p {
-  margin-bottom: 1rem;
-}
-
-/* استجابة للشاشات المتوسطة */
-@media (max-width: 1024px) {
-  .product-gallery,
-  .product-swiper {
-    width: 400px;
-    height: 300px;
-  }
-  .product-info {
-    flex: 1 1 calc(100% - 430px);
-    max-width: calc(100% - 430px);
-  }
-}
-
-/* استجابة للشاشات الصغيرة */
-@media (max-width: 768px) {
+/* ==========================================
+   Tablet: يبدأ العرض ثنائي الأعمدة
+========================================== */
+@media (min-width: 768px) {
   .product-detail-layout {
-    flex-direction: column;
+    grid-template-columns: 
+      clamp(300px, 40%, 420px) /* Gallery column */
+      1fr;                    /* Info column */
+    align-items: start;
   }
+
   .product-gallery,
-  .product-swiper,
-  .product-info {
-    width: 100%;
-    max-width: 100%;
-  }
   .product-swiper {
-    height: 320px;
+    margin-inline: 0; /* يصبح ثابت يمين */
   }
 }
 
-/* استجابة للشاشات الصغيرة جدًا */
-@media (max-width: 480px) {
-  .product-swiper {
-    height: 260px;
+/* ==========================================
+   Large Desktop (مهم جداً للتحسين)
+========================================== */
+@media (min-width: 1200px) {
+  .product-detail-layout {
+    grid-template-columns:
+      clamp(360px, 33%, 500px)  /* Gallery كبير ومتوازن */
+      1fr;
+    gap: clamp(24px, 2vw, 48px);
   }
+
+  .product-gallery,
+  .product-swiper {
+    max-width: 100%; /* تخلّي grid يتحكم بالحجم */
+  }
+}
+
+/* ==========================================
+   Ultra Wide Screens (الشاشات الكبيرة جدًا)
+========================================== */
+@media (min-width: 1440px) {
+  .product-detail-layout {
+    grid-template-columns:
+      clamp(400px, 30%, 560px)
+      1fr;
+  }
+}
+
+/* Typography */
+.product-info h1 {
+  font-size: clamp(1.2rem, 1.8vw, 2rem);
+}
+
+.product-info p,
+.product-info .price {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
 }

@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "./gallery.css";
 
 export default function ProductGallery({ mainImage, galleryImages = [], hoverImage }) {
-  const images = [mainImage, ...(galleryImages || [])];
+  const images = [mainImage, hoverImage, ...(galleryImages || [])];
 
   return (
     <div className="product-gallery">
@@ -19,6 +19,7 @@ export default function ProductGallery({ mainImage, galleryImages = [], hoverIma
         pagination={{ clickable: true }}
         spaceBetween={10}
         slidesPerView={1}
+        loop={true}
         className="product-swiper"
       >
         {images.map((img, i) => (
