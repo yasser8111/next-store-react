@@ -8,3 +8,4 @@ export default function Loader({ text = "جاري التحميل..." }) {
     </div>
   );
 }
+

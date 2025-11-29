@@ -1,3 +1,4 @@
+// CartItems.jsx
 import "./cart.css";
 import { fixImageUrl } from "../../../utils/img";
 
@@ -9,17 +10,16 @@ export default function CartItems({ items, updateQuantity, removeItem }) {
       ) : (
         items.map((item) => (
           <div key={item.id} className="cart-item">
-            <img
-              src={fixImageUrl(item.image)}
-              alt={item.name}
-              className="cart-item-img"
-            />
+            <div className="cart-item-image">
+              <img src={fixImageUrl(item.mainImage)} alt={item.name} />
+            </div>
             <div className="cart-item-info">
               <h2>{item.name}</h2>
-              <p>سعر الوحدة: {item.price} ريال</p>
+              <p className="cart-item-size">المقاس: {item.selectedSize}</p>
+              <p className="cart-item-price">سعر الوحدة: {item.price} ريال</p>
               <div className="quantity-control">
                 <button
-                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                  onClick={() => updateQuantity(item.id, Math.max(1, item.quantity - 1))}
                 >
                   -
                 </button>
@@ -30,13 +30,11 @@ export default function CartItems({ items, updateQuantity, removeItem }) {
                     updateQuantity(item.id, Math.max(1, Number(e.target.value)))
                   }
                 />
-                <button
-                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                >
-                  +
-                </button>
+                <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>+</button>
               </div>
-              <p>الإجمالي: <strong>{item.price * item.quantity} ريال</strong></p>
+              <p className="cart-item-total">
+                الإجمالي: <strong>{item.price * item.quantity} ريال</strong>
+              </p>
             </div>
             <button
               className="remove-btn"
