@@ -9,7 +9,7 @@
 
 /* معرض الصور */
 .product-gallery {
-  flex: 0 0 480px; /* عرض ثابت */
+  flex: 0 0 480px; /* عرض ثابت للـ Swiper */
 }
 
 /* سلايدر Swiper */
@@ -38,6 +38,12 @@
 .product-info h2,
 .product-info p {
   margin-bottom: 1rem;
+}
+
+/* قسم المواصفات */
+.product-specs {
+  margin-top: 40px;
+  direction: rtl;
 }
 
 /* استجابة للشاشات المتوسطة */

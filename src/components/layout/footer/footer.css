@@ -16,7 +16,7 @@
   line-height: 1.8;
 }
 
-.footer-section div.logo {
+.footer-section .logo {
     color: var(--text-on-primary);
 }
 

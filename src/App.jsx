@@ -10,7 +10,7 @@ const Cart = lazy(() => import("./pages/Cart"));
 const About = lazy(() => import("./pages/About"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Custom = lazy(() => import("./pages/Custom"));
-const ProductDetails = lazy(() => import("./pages/ProductDetails"))
+const ProductDetails = lazy(() => import("./pages/product-details/ProductDetails"))
 
 export default function App() {
   return (

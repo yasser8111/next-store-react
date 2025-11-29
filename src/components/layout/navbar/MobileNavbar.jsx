@@ -1,8 +1,12 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import "./navbar.css"; 
+import {
+  faBars,
+  faXmark,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
+import "./navbar.css";
 
 const mobileItems = [
   { name: "الرئيسية", to: "/" },
@@ -16,8 +20,8 @@ const mobileItems = [
 
 export default function MobileNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef(null); 
-  const btnRef = useRef(null);  
+  const menuRef = useRef(null);
+  const btnRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -43,10 +47,11 @@ export default function MobileNavbar() {
       <div className="mobile-header">
         <button
           ref={btnRef}
-          className="menu-btn"
+          className={`menu-btn ${isOpen ? "open" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <FontAwesomeIcon icon={isOpen ? faXmark : faBars} size="lg" />
+          <div className="bar"></div>
+          <div className="bar"></div>
         </button>
 
         <Link to="/cart" className="cart-icon">
@@ -54,16 +59,9 @@ export default function MobileNavbar() {
         </Link>
       </div>
 
-      <div
-        ref={menuRef}
-        className={`mobile-menu ${isOpen ? "show" : ""}`}
-      >
+      <div ref={menuRef} className={`mobile-menu ${isOpen ? "show" : ""}`}>
         {mobileItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.to}
-            onClick={() => setIsOpen(false)}
-          >
+          <Link key={item.name} to={item.to} onClick={() => setIsOpen(false)}>
             {item.name}
           </Link>
         ))}

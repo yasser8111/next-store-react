@@ -15,7 +15,7 @@ const items = [
     name: "السلة",
     to: "/cart",
     links: [
-      { label: "المنتجات", to: "/products" },
+      { label: "دخل السلة", to: "/cart" },
       { label: "إتمام الطلب", to: "/checkout" },
     ],
   },
