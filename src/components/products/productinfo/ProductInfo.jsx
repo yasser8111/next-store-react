@@ -6,24 +6,32 @@ export default function ProductInfo({ product }) {
   );
 
   return (
-    <div className="product-info">
-      <h1 className="product-name">{product.name}</h1>
+    <div className="product-info-detiels">
+      <h1 className="product-title">{product.name}</h1>
       <p className="product-description">{product.description}</p>
 
       {availableSizes.length > 0 && (
         <div className="product-sizes">
           <h3>المقاسات المتوفرة:</h3>
-          <div className="sizes-list">
+
+          <select className="sizes-select">
             {availableSizes.map((size) => (
-              <span key={size} className="size-item">{size}</span>
+              <option key={size} value={size}>
+                {size}
+              </option>
             ))}
-          </div>
+          </select>
         </div>
       )}
+
       <div className="product-prices">
-        <span className="price">{product.price} {product.currency}</span>
+        <span className="price">
+          {product.price} {product.currency}
+        </span>
         {product.oldPrice && (
-          <span className="old-price">{product.oldPrice} {product.currency}</span>
+          <span className="old-price">
+            {product.oldPrice} {product.currency}
+          </span>
         )}
       </div>
 

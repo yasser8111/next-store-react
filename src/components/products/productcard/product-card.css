@@ -24,7 +24,7 @@
 }
 
 /* Info */
-.product-info {
+.product-card .product-info {
   margin-top: var(--space-4);
 }
 

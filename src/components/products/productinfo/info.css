@@ -1,12 +1,13 @@
-.product-info-detail {
+.product-info-detiels {
+  display: flex;
+  flex-direction: column;
   padding: var(--space-4);
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
   margin-bottom: var(--space-6);
+  gap: var(--gap-sm);
 }
-.product-info-detail .product-title {
-  font-size: var(--text-3xl);
+.product-info-detiels .product-title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-weight-semibold);
   margin-bottom: var(--space-2);
 }
 .product-prices {
@@ -30,7 +31,7 @@
 .product-prices.discount .price {
   color: var(--color-primary-500);
 }
-.product-info-detail .product-description {
+.product-info-detiels .product-description {
   font-size: var(--text-base);
   color: var(--text-secondary);
   margin-bottom: var(--space-4);
@@ -48,15 +49,17 @@
 }
 .product-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 10px;
   margin-top: var(--space-4);
 }
 .product-actions .btn {
+  width: 50%;
   padding: 0.6rem 1.2rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
+  white-space: nowrap;
 }
 .btn.primary {
   background-color: var(--color-primary-500);
@@ -83,23 +86,32 @@
 .product-sizes {
   margin: var(--space-4) 0;
 }
-.sizes-list {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: var(--space-2);
-}
-.size-item {
-  padding: 0.4rem 0.8rem;
-  border: 1px solid var(--color-primary-500);
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-card);
+.sizes-select {
+  text-align: center;
+  width: 100px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
   cursor: pointer;
-  font-weight: var(--font-weight-medium);
-  transition: var(--transition-normal);
+  border: 2px solid var(--color-primary-600);
+  color: var(--color-primary-600);
+  outline: none;
+  transition: var(--transition-fast);
 }
-.size-item:hover {
-  background-color: var(--color-primary-50);
+.sizes-select:is(:hover :focus) {
+  background: var(--color-neutral-100);
+}
+@media (max-width: 768px) {
+  .product-info-detiels {
+    padding: 0;
+  }
+  .product-actions {
+    flex-direction: column;
+  }
+  .product-actions .btn {
+    width: 100%;
+  }
 }
 @media (max-width: 400px) {
   .product-prices {

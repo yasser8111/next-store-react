@@ -1,6 +1,3 @@
-/* ================================
-   Product Detail Main Layout
-================================ */
 .product-detail-layout {
   margin-top: 80px;
   display: grid;
@@ -8,10 +5,6 @@
   gap: clamp(16px, 4vw, 32px);
   direction: rtl;
 }
-
-/* ================================
-   Gallery Container
-================================ */
 .product-gallery,
 .product-swiper {
   width: 100%;
@@ -21,15 +14,16 @@
   overflow: hidden;
   margin-inline: auto;
 }
-.product-gallery{
+.product-gallery {
   box-shadow: var(--shadow-2xl);
+  position: sticky;
+  top: 120px;
+  margin: var(--space-4);
+  margin-bottom: 40px;
 }
 .product-swiper {
   position: relative;
 }
-/* ================================
-   Swiper Pagination (Dots)
-================================ */
 .product-swiper .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
@@ -37,7 +31,6 @@
   opacity: 0.5;
   transition: 0.3s;
 }
-
 .product-swiper .swiper-pagination-bullet-active {
   background: var(--color-primary-500);
   opacity: 1;
@@ -47,9 +40,6 @@
 .product-swiper .swiper-pagination {
   bottom: 12px !important;
 }
-/* ================================
-   Custom Navigation Buttons
-================================ */
 .custom-prev,
 .custom-next {
   position: absolute;
@@ -79,33 +69,17 @@
   background: var(--bg-card);
   opacity: 1;
 }
-
 .custom-prev {
   right: 10px !important;
 }
 .custom-next {
   left: 10px !important;
 }
-/* ================================
-   Slide Image
-================================ */
 .product-gallery .slide-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-/* ================================
-   Product Info Section
-================================ */
-.product-info {
-  width: 100%;
-  min-width: 0;
-}
-
-/* ================================
-   Responsive Layout (≥768px)
-================================ */
 @media (min-width: 768px) {
   .product-detail-layout {
     grid-template-columns:
@@ -114,15 +88,11 @@
     align-items: start;
     margin-top: 100px;
   }
-
   .product-gallery,
   .product-swiper {
     margin-inline: 0;
   }
 }
-/* ================================
-   Responsive Layout (≥1200px)
-================================ */
 @media (min-width: 1200px) {
   .product-detail-layout {
     grid-template-columns:
@@ -130,16 +100,11 @@
       1fr;
     gap: clamp(24px, 2vw, 48px);
   }
-
   .product-gallery,
   .product-swiper {
     max-width: 100%;
   }
 }
-
-/* ================================
-   Responsive Layout (≥1440px)
-================================ */
 @media (min-width: 1440px) {
   .product-detail-layout {
     grid-template-columns:
@@ -147,15 +112,11 @@
       1fr;
   }
 }
-
-/* ================================
-   Typography
-================================ */
-.product-info h1 {
-  font-size: clamp(1.2rem, 1.8vw, 2rem);
-}
-
-.product-info p,
-.product-info .price {
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
+@media (max-width: 768px) {
+  .product-gallery {
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+    width: 100%;
+  }
 }

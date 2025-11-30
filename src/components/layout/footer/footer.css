@@ -1,6 +1,11 @@
 .footer {
   direction: rtl;
-  background: var(--color-neutral-800);
+  background: linear-gradient(
+  135deg,
+  var(--color-neutral-700),
+  var(--color-neutral-900)
+);
+
   color: var(--color-neutral-100);
   padding: var(--space-16) 0 var(--space-8);
 }

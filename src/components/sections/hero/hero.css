@@ -48,11 +48,11 @@
 @keyframes textintro {
   0% {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
@@ -72,5 +72,9 @@
 
   .hero-content p {
     font-size: var(--text-lg);
+  }
+  .home-page .header {
+    top: 0;
+    animation: none;
   }
 }
