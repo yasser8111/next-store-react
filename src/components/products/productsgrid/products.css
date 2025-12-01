@@ -40,7 +40,6 @@
   border: 1px solid var(--bg-card);
   border-radius: var(--radius-lg);
   font-size: var(--text-md);
-  box-shadow: var(--shadow-xs);
   outline: none;
   transition: var(--transition-fast);
 }
@@ -88,6 +87,10 @@
   .products-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: var(--gap-xs);
+  }
+  .search-bar,
+  .sort-select {
+   border-radius: var(--radius-md);
   }
 }
 

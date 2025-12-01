@@ -1,12 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import "./cart.css";
 
 export default function CartSummary({ items }) {
+  const navigate = useNavigate();
+
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const currency = items.length > 0 ? items[0].currency : "YER";
 
   const discountEligible = total >= 35000;
   const discount = discountEligible ? total * 0.10 : 0;
   const finalTotal = total - discount;
+
+  const goToCheckout = () => {
+    if (items.length === 0) return alert("السلة فارغة!");
+    navigate("/checkout");
+  };
 
   return (
     <div className="cart-summary">
@@ -30,7 +38,9 @@ export default function CartSummary({ items }) {
         </p>
       </div>
 
-      <button className="checkout-btn">إتمام الطلب</button>
+      <button className="checkout-btn" onClick={goToCheckout}>
+        إتمام الطلب
+      </button>
     </div>
   );
 }

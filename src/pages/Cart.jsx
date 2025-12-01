@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";   // ← هذا كان ناقص
 import Header from "../components/layout/header/Header";
 import Footer from "../components/layout/footer/Footer";
 import CartItems from "../components/sections/cart/CartItems";
@@ -8,6 +9,8 @@ import Loader from "../components/common/loader/Loader";
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -25,16 +28,22 @@ export default function Cart() {
     });
   };
 
-  const removeItem = (id, selectedSize) => {
-  setCartItems((prev) => {
-    const updated = prev.filter(
-      (item) => !(item.id === id && item.selectedSize === selectedSize)
-    );
-    localStorage.setItem("cart", JSON.stringify(updated));
-    return updated;
-  });
-};
+  const goToCheckout = () => {
+    if (!cartItems || cartItems.length === 0) {
+      return alert("السلة فارغة!");
+    }
+    navigate("/checkout");
+  };
 
+  const removeItem = (id, selectedSize) => {
+    setCartItems((prev) => {
+      const updated = prev.filter(
+        (item) => !(item.id === id && item.selectedSize === selectedSize)
+      );
+      localStorage.setItem("cart", JSON.stringify(updated));
+      return updated;
+    });
+  };
 
   if (loading) return <Loader />;
 
