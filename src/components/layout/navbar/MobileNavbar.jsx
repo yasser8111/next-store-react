@@ -1,11 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faXmark,
-  faShoppingCart,
-} from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import "./navbar.css";
 
 const mobileItems = [
@@ -18,7 +14,7 @@ const mobileItems = [
   { name: "الإعدادات", to: "/login" },
 ];
 
-export default function MobileNavbar() {
+export default function MobileNavbar({ cartCount }) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const btnRef = useRef(null);
@@ -36,10 +32,7 @@ export default function MobileNavbar() {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -56,6 +49,8 @@ export default function MobileNavbar() {
 
         <Link to="/cart" className="cart-icon">
           <FontAwesomeIcon icon={faShoppingCart} size="lg" />
+
+          {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </Link>
       </div>
 

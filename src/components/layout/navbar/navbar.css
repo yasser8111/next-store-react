@@ -71,7 +71,25 @@
 .cart-icon {
   color: var(--text-primary);
 }
-
+.cart-icon {
+  position: relative;
+}
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .mobile-menu {
   position: absolute;
   top: 70px;

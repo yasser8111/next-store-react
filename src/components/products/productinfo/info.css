@@ -88,7 +88,7 @@
 }
 .sizes-select {
   text-align: center;
-  width: 100px;
+  width: 80px;
   padding: 0.5rem;
   margin-top: 0.5rem;
   border-radius: var(--radius-lg);
@@ -98,6 +98,7 @@
   color: var(--color-primary-600);
   outline: none;
   transition: var(--transition-fast);
+  font-weight: var(--font-weight-bold);
 }
 .sizes-select:is(:hover :focus) {
   background: var(--color-neutral-100);

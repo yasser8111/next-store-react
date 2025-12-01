@@ -6,6 +6,8 @@ import MobileNavbar from "../navbar/MobileNavbar";
 
 export default function Header() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartCount = cartItems.length;
 
   useEffect(() => {
     const handleResize = () => {
@@ -14,11 +16,14 @@ export default function Header() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-
   return (
     <header className="header">
       <div className="header-cont container">
-        {isMobile ? <MobileNavbar /> : <Navbar />}
+        {isMobile ? (
+          <MobileNavbar cartCount={cartCount} />
+        ) : (
+          <Navbar cartCount={cartCount} />
+        )}
         <Logo />
       </div>
     </header>

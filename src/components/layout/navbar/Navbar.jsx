@@ -5,7 +5,7 @@ import "./navbar.css";
 const items = [
   {
     name: "المستخدم",
-    to: "/profile",
+    to: "/login",
     links: [
       // /profile /settings
       { label: "الملف الشخصي", to: "/login" },
@@ -16,7 +16,7 @@ const items = [
     name: "السلة",
     to: "/cart",
     links: [
-      { label: "دخل السلة", to: "/cart" },
+      { label: "في السلة", to: "/cart" },
       { label: "إتمام الطلب", to: "/checkout" },
     ],
   },

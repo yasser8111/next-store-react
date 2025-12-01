@@ -25,28 +25,33 @@ export default function Cart() {
     });
   };
 
-  const removeItem = (id) => {
-    setCartItems((prev) => {
-      const updated = prev.filter((item) => item.id !== id);
-      localStorage.setItem("cart", JSON.stringify(updated));
-      return updated;
-    });
-  };
+  const removeItem = (id, selectedSize) => {
+  setCartItems((prev) => {
+    const updated = prev.filter(
+      (item) => !(item.id === id && item.selectedSize === selectedSize)
+    );
+    localStorage.setItem("cart", JSON.stringify(updated));
+    return updated;
+  });
+};
+
 
   if (loading) return <Loader />;
 
   return (
     <>
       <Header />
-      <div className="cart-container">
-        <h1>سلة المشتريات</h1>
-        <div className="cart-content">
-          <CartItems
-            items={cartItems}
-            updateQuantity={updateQuantity}
-            removeItem={removeItem}
-          />
-          <CartSummary items={cartItems} />
+      <div className="container">
+        <div className="cart">
+          <h1 className="cart-title">سلة المشتريات</h1>
+          <div className="cart-content">
+            <CartItems
+              items={cartItems}
+              updateQuantity={updateQuantity}
+              removeItem={removeItem}
+            />
+            <CartSummary items={cartItems} />
+          </div>
         </div>
       </div>
       <Footer />

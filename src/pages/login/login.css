@@ -5,6 +5,7 @@
   min-height: 80vh;
   padding: var(--space-4);
   background: var(--bg-secondary);
+  min-height: 90dvh;
 }
 
 .login-card {
