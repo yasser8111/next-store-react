@@ -112,6 +112,7 @@
   color: var(--text-primary);
   font-weight: bold;
   border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
 }
 
 .mobile-menu a:last-child {
@@ -183,7 +184,6 @@
 
   .mobile-menu a {
     padding: 0.6rem 0.8rem;
-    font-size: var(--text-sm);
   }
 }
 @media (max-width: 360px) {

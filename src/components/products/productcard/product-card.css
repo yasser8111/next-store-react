@@ -100,7 +100,7 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 376px) {
   .product-card {
     padding: var(--space-2);
     border-radius: var(--radius-md);
