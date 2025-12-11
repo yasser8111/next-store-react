@@ -65,7 +65,12 @@
   background-color: var(--color-primary-500);
   color: var(--text-on-primary);
 }
-.btn.primary:hover {
+.btn.primary:disabled {
+  background-color: var(--color-neutral-300);
+  cursor: not-allowed;
+  transform: none;
+}
+.btn.primary:hover:not(:disabled) {
   background-color: var(--color-primary-600);
 }
 .btn.outline {
@@ -73,7 +78,13 @@
   color: var(--color-primary-500);
   background: transparent;
 }
-.btn.outline:hover {
+.btn.outline:disabled {
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-300);
+  cursor: not-allowed;
+  transform: none;
+}
+.btn.outline:hover:not(:disabled) {
   background-color: var(--color-primary-50);
 }
 .btn.whatsapp {

@@ -1,25 +1,19 @@
-/* ============================
-   Products Section
-============================ */
 .products {
   direction: rtl;
   text-align: right;
-  padding: var(--space-16) 0;
   background: var(--bg-secondary);
+  padding: 0;
 }
-
 .products .container-sm {
   padding: 0;
 }
-
-/* Title */
 .products-title {
   font-family: var(--font-ar);
-  font-size: var(--text-4xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-8);
   color: var(--text-primary);
   text-align: center;
+  padding: var(--space-12) 0;
 }
 
 /* Grid */
@@ -58,18 +52,10 @@
    Responsive Small Screens
 ============================ */
 @media (max-width: 480px) {
-  .products {
-    padding: var(--space-10) 0;
-  }
-.products-title {
-  font-size: var(--text-3xl);
-  margin-bottom: var(--space-6);
-}
   .products-grid {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: var(--gap-sm);
   }
-
   .sort-select,
   .search-bar {
     margin-bottom: 15px;
@@ -80,10 +66,6 @@
 }
 
 @media (max-width: 360px) {
-  .products {
-    padding: var(--space-8) 0;
-  }
-
   .products-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: var(--gap-xs);
@@ -95,10 +77,6 @@
 }
 
 @media (max-width: 320px) {
-  .products {
-    padding: var(--space-6) 0;
-  }
-
   .products-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: var(--gap-xs);

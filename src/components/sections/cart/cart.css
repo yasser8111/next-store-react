@@ -1,10 +1,11 @@
 .cart {
-  padding: var(--space-12) 0;
+  margin-bottom: var(--space-12);
 }
 
 .cart-title {
   text-align: center;
-  margin-bottom: var(--space-10);
+  padding: var(--space-12) 0;
+  font-size: var(--text-3xl);
 }
 
 .cart-content {

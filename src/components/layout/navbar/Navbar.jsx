@@ -7,7 +7,6 @@ const items = [
     name: "المستخدم",
     to: "/login",
     links: [
-      // /profile /settings
       { label: "الملف الشخصي", to: "/login" },
       { label: "الإعدادات", to: "/login" },
     ],
@@ -24,7 +23,6 @@ const items = [
     name: "الصفحات",
     to: "/",
     links: [
-      // /about
       { label: "الرئيسية", to: "/" },
       { label: "المنتجات", to: "/products" },
       { label: "من نحن", to: "/" },
@@ -38,7 +36,7 @@ const items = [
   },
 ];
 
-const NavItem = ({ item, isActive, onHover }) => {
+const NavItem = ({ item, isActive, onHover, cartCount }) => {
   const ref = useRef();
 
   const handleHover = () => {
@@ -49,28 +47,23 @@ const NavItem = ({ item, isActive, onHover }) => {
     onHover(item, offset);
   };
 
-  return item.to.startsWith("#") ? (
-    <a
-      ref={ref}
-      href={item.to}
-      className={isActive ? "active" : ""}
-      onMouseEnter={handleHover}
-    >
-      {item.name}
-    </a>
-  ) : (
+  return (
     <Link
       ref={ref}
       to={item.to}
-      className={isActive ? "active" : ""}
+      className={isActive ? "active nav-item" : "nav-item"}
       onMouseEnter={handleHover}
     >
       {item.name}
+
+      {item.name === "السلة" && cartCount > 0 && (
+        <span className="cart-badge">{cartCount}</span>
+      )}
     </Link>
   );
 };
 
-export default function Navbar() {
+export default function Navbar({ cartCount }) {
   const [translateX, setTranslateX] = useState(0);
   const [activeItem, setActiveItem] = useState(null);
   const [isHidden, setIsHidden] = useState(true);
@@ -91,6 +84,7 @@ export default function Navbar() {
           <NavItem
             key={item.name}
             item={item}
+            cartCount={cartCount}
             isActive={item.name === activeItem?.name && !isHidden}
             onHover={handleHover}
           />
@@ -103,17 +97,11 @@ export default function Navbar() {
         }`}
         style={{ transform: `translateX(${translateX}px)` }}
       >
-        {activeItem?.links?.map((link) =>
-          link.to.startsWith("#") ? (
-            <a key={link.label} href={link.to}>
-              {link.label}
-            </a>
-          ) : (
-            <Link key={link.label} to={link.to}>
-              {link.label}
-            </Link>
-          )
-        )}
+        {activeItem?.links?.map((link) => (
+          <Link key={link.label} to={link.to}>
+            {link.label}
+          </Link>
+        ))}
       </div>
     </div>
   );

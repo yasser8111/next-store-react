@@ -4,6 +4,7 @@ import { termsData } from "../../../context/TermsContext";
 export default function TermsContent() {
   return (
     <div className="container">
+        <h2 className="terms-title">الشروط والأحكام</h2>
       <section className="terms-section">
         <aside className="terms-sidebar">
           <nav>

@@ -27,6 +27,8 @@ export default function ProductCard({ product }) {
     );
   }
 
+  const unavailable = !product.isAvailable;
+
   return (
     <div className="product-card" onClick={goToDetail}>
       <div className="image-wrapper">
@@ -39,13 +41,25 @@ export default function ProductCard({ product }) {
 
       <div className="product-info">
         <h3 className="product-title">{product.name}</h3>
+
         <div className="product-price">
-          <span>
-            {product.price} {product.currency}
-          </span>
+          {unavailable ? (
+            <span className="unavailable-text">غير متوفر</span>
+          ) : (
+            <span>
+              {product.price} {product.currency}
+            </span>
+          )}
         </div>
-        <button className="product-btn" onClick={goToDetail}>
-          إضافة إلى السلة
+
+        <button
+          className="product-btn"
+          onClick={(e) => {
+            e.stopPropagation();
+            goToDetail(); 
+          }}
+        >
+          {unavailable ? "عرض" : "إضافة إلى السلة"}
         </button>
       </div>
     </div>

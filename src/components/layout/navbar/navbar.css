@@ -19,6 +19,9 @@
   cursor: pointer;
   background: var(--bg-card);
 }
+.menu a:nth-child(2) {
+  position: relative;
+}
 .dropdown {
   position: absolute;
   top: 100%;
@@ -89,6 +92,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
 .mobile-menu {
   position: absolute;
@@ -107,7 +111,7 @@
 }
 .mobile-menu a {
   margin: 10px 10px 0 10px;
-  padding: .75rem 1rem;
+  padding: 0.75rem 1rem;
   text-decoration: none;
   color: var(--text-primary);
   font-weight: bold;
@@ -157,17 +161,6 @@
   transform: rotate(-45deg) translate(3px, -6px);
   width: 100%;
 }
-
-/* @media (max-width: 768px) {
-  .menu {
-    display: none;
-  }
-  .mobile-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-} */
 @media (max-width: 768px) {
   .menu {
     display: none;

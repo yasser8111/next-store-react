@@ -1,52 +1,39 @@
+import { useCart } from "../../../context/CartContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./info.css";
 
 export default function ProductInfo({ product }) {
   const navigate = useNavigate();
+  const { addToCart } = useCart();  // استخدم الـ Context
+
   const [selectedSize, setSelectedSize] = useState("");
+
+  const unavailable = !product.isAvailable;
 
   const availableSizes = Object.keys(product.sizes || {}).filter(
     (size) => product.sizes[size] > 0
   );
 
-  const getCart = () => {
-    const stored = localStorage.getItem("cart");
-    return stored ? JSON.parse(stored) : [];
-  };
+  const handleAddToCart = () => {
+    if (unavailable) return;
 
-  const saveCart = (cart) => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  };
-
-  const addToCart = () => {
-    const cart = getCart();
     const size = selectedSize || availableSizes[0];
 
-    const existingIndex = cart.findIndex(
-      (item) => item.id === product.id && item.selectedSize === size
-    );
-
-    if (existingIndex !== -1) {
-      cart[existingIndex].quantity += 1;
-    } else {
-      cart.push({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        currency: product.currency,
-        mainImage: product.mainImage,
-        hoverImage: product.hoverImage,
-        selectedSize: size,
-        quantity: 1
-      });
-    }
-
-    saveCart(cart);
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      currency: product.currency,
+      mainImage: product.mainImage,
+      hoverImage: product.hoverImage,
+      selectedSize: size,
+      quantity: 1
+    });
   };
 
   const buyNow = () => {
-    addToCart();
+    handleAddToCart();
     navigate("/cart");
   };
 
@@ -62,6 +49,7 @@ export default function ProductInfo({ product }) {
             className="sizes-select"
             value={selectedSize}
             onChange={(e) => setSelectedSize(e.target.value)}
+            disabled={unavailable}
           >
             {availableSizes.map((size) => (
               <option key={size} value={size}>
@@ -73,10 +61,15 @@ export default function ProductInfo({ product }) {
       )}
 
       <div className="product-prices">
-        <span className="price">
-          {product.price} {product.currency}
-        </span>
-        {product.oldPrice && (
+        {unavailable ? (
+          <span className="price unavailable-text">غير متوفر</span>
+        ) : (
+          <span className="price">
+            {product.price} {product.currency}
+          </span>
+        )}
+
+        {product.oldPrice && !unavailable && (
           <span className="old-price">
             {product.oldPrice} {product.currency}
           </span>
@@ -84,22 +77,12 @@ export default function ProductInfo({ product }) {
       </div>
 
       <div className="product-actions">
-        <button className="btn primary" onClick={addToCart}>
+        <button className="btn primary" onClick={handleAddToCart} disabled={unavailable}>
           أضف إلى السلة
         </button>
-
-        <button className="btn outline" onClick={buyNow}>
+        <button className="btn outline" onClick={buyNow} disabled={unavailable}>
           شراء الآن
         </button>
-
-        {product.whatsapp && (
-          <a
-            href={`https://wa.me/967${product.whatsapp}?text=اريد طلب ${product.name}`}
-            className="btn whatsapp"
-          >
-            تواصل واتساب
-          </a>
-        )}
       </div>
     </div>
   );
