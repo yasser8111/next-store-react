@@ -64,8 +64,10 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container footer-bottom">
-        <p>جميع الحقوق محفوظة © {new Date().getFullYear()}</p>
+      <div className="container">
+        <div className="footer-bottom">
+          <p>جميع الحقوق محفوظة © {new Date().getFullYear()}</p>
+        </div>
       </div>
     </footer>
   );
